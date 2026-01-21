@@ -5,82 +5,113 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ION-GEMS | Rinde a tu máximo nivel</title>
     <style>
-        /* --- ESTILO DARK MODE PREMIUM --- */
+        /* CONFIGURACIÓN BÁSICA */
         :root {
             --bg-black: #000000;
-            --bg-dark: #121212;
-            --neon-red: #ff003c;    /* Frutos Rojos */
-            --neon-cyan: #00f0ff;   /* Menta */
-            --neon-gold: #ffe600;   /* Mango */
+            --neon-red: #ff003c;
+            --neon-cyan: #00f0ff;
+            --neon-gold: #ffe600;
             --text-white: #ffffff;
-            --text-gray: #b3b3b3;
         }
-        
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: sans-serif;
             margin: 0; padding: 0;
             color: var(--text-white);
             background-color: var(--bg-black);
-            line-height: 1.6;
         }
 
-        /* 1. BARRA DE NAVEGACIÓN (Sticky) */
-        nav {
-            position: sticky; top: 0; z-index: 100;
-            background: rgba(0,0,0,0.95);
-            border-bottom: 1px solid #333;
-            padding: 1rem;
-            display: flex; justify-content: space-between; align-items: center;
+        /* HEADER */
+        header {
+            text-align: center;
+            padding: 4rem 1.5rem;
+            /* Fondo de seguridad por si la imagen tarda en cargar */
+            background-color: #111;
+            background-image: linear-gradient(rgba(0,0,0,0.6), #000), url('frutorojo-ion.jpg');
+            background-size: cover;
+            background-position: center;
         }
-        .nav-logo img { height: 40px; border-radius: 5px; }
-        .nav-btn {
-            background: var(--text-white); color: black;
-            padding: 8px 15px; border-radius: 20px;
-            font-weight: 800; text-decoration: none; font-size: 0.8rem;
+        img.logo-small { height: 50px; border-radius: 5px; margin-bottom: 1rem; }
+        
+        h1 { font-size: 2.5rem; text-transform: uppercase; margin: 0; font-weight: 900; }
+        p.subtitle { color: #ccc; margin: 1rem auto; max-width: 500px; }
+
+        /* BOTONES */
+        .btn {
+            display: inline-block;
+            background: var(--neon-red);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            margin-top: 1rem;
             text-transform: uppercase;
         }
 
-        /* 2. HERO SECTION (Impacto) */
-        header {
-            text-align: center; padding: 4rem 1.5rem;
-            background: linear-gradient(180deg, rgba(0,0,0,0.7), #000), url('frutorojo-ion.jpg');
-            background-size: cover; background-position: center;
+        /* SECCIONES */
+        .container { padding: 2rem 1.5rem; text-align: center; }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
         }
-        h1 {
-            font-size: 2.8rem; line-height: 1.1; margin-bottom: 0.5rem;
-            text-transform: uppercase; font-weight: 900; letter-spacing: 2px;
-            text-shadow: 0 0 20px rgba(255,255,255,0.3);
+
+        /* TARJETAS DE PRODUCTO */
+        .card {
+            background: #111;
+            border: 1px solid #333;
+            border-radius: 15px;
+            overflow: hidden;
+            padding-bottom: 1.5rem;
         }
-        .subtitle { color: var(--text-gray); font-size: 1.1rem; max-width: 500px; margin: 0 auto 2rem auto; }
+        .card img { width: 100%; height: 250px; object-fit: cover; }
+        .card h3 { margin: 1rem 0 0.5rem 0; text-transform: uppercase; }
         
-        .cta-main {
-            display: inline-block; background: var(--neon-red); color: white;
-            padding: 18px 40px; border-radius: 50px; font-weight: 800;
-            text-decoration: none; text-transform: uppercase; letter-spacing: 1px;
-            box-shadow: 0 0 20px rgba(255, 0, 60, 0.4); animation: pulse 2s infinite;
-        }
+        /* FOOTER */
+        footer { padding: 3rem 1.5rem; text-align: center; color: #888; font-size: 0.9rem; border-top: 1px solid #333; }
+    </style>
+</head>
+<body>
 
-        /* 3. EL PROBLEMA */
-        .problem-sect { padding: 4rem 1.5rem; text-align: center; background: var(--bg-dark); }
-        .x-icon { font-size: 3rem; margin-bottom: 1rem; display: block; }
-        h2 { text-transform: uppercase; font-weight: 800; letter-spacing: 1px; margin-bottom: 1.5rem; }
+    <header>
+        <img src="iongems.jpg" alt="Logo" class="logo-small">
+        <h1>Rinde a tu<br><span style="color: var(--neon-red);">Máximo Nivel</span></h1>
+        <p class="subtitle">Energía, Hidratación y Colágeno en tu bolsillo.</p>
+        <a href="https://wa.me/593995531294?text=Hola%20ION-GEMS,%20quiero%20el%20pack%20de%20promocion" class="btn">Conseguir - $1.50</a>
+    </header>
 
-        /* 4. LA SOLUCIÓN (Trilogía) */
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; padding: 2rem 1.5rem; max-width: 1000px; margin: 0 auto; }
-        .solution-card {
-            border: 1px solid #333; padding: 2rem; border-radius: 15px; text-align: center;
-            background: black;
-        }
-        .icon-neon { font-size: 2rem; margin-bottom: 10px; display: block; text-shadow: 0 0 10px currentColor; }
+    <div class="container">
+        <h2>Nuestra Colección</h2>
+        <div class="grid">
+            
+            <div class="card" style="border-color: var(--neon-red);">
+                <img src="frutorojo-ion.jpg" alt="Frutos Rojos">
+                <h3 style="color: var(--neon-red);">Red Berries</h3>
+                <p>Fuerza e Hipertrofia</p>
+            </div>
 
-        /* 5. COLECCIÓN (Sabores) */
-        .collection-sect { padding: 2rem 1.5rem; }
-        .product-card {
-            background: var(--bg-dark); border-radius: 20px; overflow: hidden;
-            border: 1px solid #333; margin-bottom: 2rem; position: relative;
-        }
-        .product-img { width: 100%; height: 300px; object-fit: cover; }
-        .p-content { padding: 1.5rem; text-align: center; }
-        
-        /* Estilo Destacado (Frutos Rojos) */
-        .featured { border: 2px solid var(--neon-red); transform: scale(1
+            <div class="card" style="border-color: var(--neon-cyan);">
+                <img src="Menta-Ion_edit_42142831577933.jpg" alt="Menta">
+                <h3 style="color: var(--neon-cyan);">Ice Mint</h3>
+                <p>Cardio y Resistencia</p>
+            </div>
+
+            <div class="card" style="border-color: var(--neon-gold);">
+                <img src="mango-ion_edit_42214951596812.jpg" alt="Mango">
+                <h3 style="color: var(--neon-gold);">Tropical Mango</h3>
+                <p>Energía Matutina</p>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <strong>MUSCLE HOUSE GYM</strong><br>
+        Punto de Venta Exclusivo • Ibarra<br><br>
+        © 2026 ION-GEMS
+    </footer>
+
+</body>
+</html>
