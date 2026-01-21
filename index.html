@@ -5,173 +5,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ION-GEMS | Rinde a tu máximo nivel</title>
     <style>
-        /* Colores Minimalistas (Blanco, Negro y Grises) */
+        /* --- ESTILO DARK MODE PREMIUM --- */
         :root {
-            --primary: #000000; /* Negro Puro */
-            --secondary: #333333; /* Gris Oscuro */
-            --bg-light: #ffffff; /* Fondo Blanco */
-            --bg-off-white: #f8f9fa; /* Fondo Gris Muy Claro */
-            --text-dark: #1a1a1a;
+            --bg-black: #000000;
+            --bg-dark: #121212;
+            --neon-red: #ff003c;    /* Frutos Rojos */
+            --neon-cyan: #00f0ff;   /* Menta */
+            --neon-gold: #ffe600;   /* Mango */
+            --text-white: #ffffff;
+            --text-gray: #b3b3b3;
         }
+        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            color: var(--text-dark);
-            background-color: var(--bg-light);
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0; padding: 0;
+            color: var(--text-white);
+            background-color: var(--bg-black);
             line-height: 1.6;
         }
-        
-        /* Header */
+
+        /* 1. BARRA DE NAVEGACIÓN (Sticky) */
+        nav {
+            position: sticky; top: 0; z-index: 100;
+            background: rgba(0,0,0,0.95);
+            border-bottom: 1px solid #333;
+            padding: 1rem;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .nav-logo img { height: 40px; border-radius: 5px; }
+        .nav-btn {
+            background: var(--text-white); color: black;
+            padding: 8px 15px; border-radius: 20px;
+            font-weight: 800; text-decoration: none; font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        /* 2. HERO SECTION (Impacto) */
         header {
-            background-color: var(--bg-light);
-            text-align: center;
-            padding: 4rem 1.5rem;
-            border-bottom: 1px solid #eee;
+            text-align: center; padding: 4rem 1.5rem;
+            background: linear-gradient(180deg, rgba(0,0,0,0.7), #000), url('frutorojo-ion.jpg');
+            background-size: cover; background-position: center;
         }
         h1 {
-            margin: 0;
-            font-size: 2.5rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-weight: 800;
-            color: var(--primary);
+            font-size: 2.8rem; line-height: 1.1; margin-bottom: 0.5rem;
+            text-transform: uppercase; font-weight: 900; letter-spacing: 2px;
+            text-shadow: 0 0 20px rgba(255,255,255,0.3);
         }
-        .tagline {
-            font-size: 1.1rem;
-            color: var(--secondary);
-            margin-top: 1rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        p.subtitle {
-            font-size: 1.1rem;
-            color: #666;
-            margin-top: 1.5rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+        .subtitle { color: var(--text-gray); font-size: 1.1rem; max-width: 500px; margin: 0 auto 2rem auto; }
         
-        /* Botón Estilo Minimalista */
-        .btn {
-            display: inline-block;
-            background: var(--primary);
-            color: white;
-            padding: 15px 35px;
-            text-decoration: none;
-            border-radius: 0; /* Bordes rectos = más serio/minimalista */
-            font-weight: 600;
-            margin-top: 25px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border: 2px solid var(--primary);
-            transition: all 0.3s ease;
-        }
-        .btn:hover {
-            background: transparent;
-            color: var(--primary);
-        }
-        
-        /* Contenedores y Tarjetas */
-        .container { max-width: 900px; margin: 0 auto; padding: 3rem 1.5rem; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; }
-        
-        .card {
-            background: var(--bg-light);
-            padding: 2.5rem;
-            border: 1px solid #eee;
-            text-align: left; /* Alineación izquierda es más elegante */
-        }
-        .card h3 { margin-top: 0; font-size: 1.3rem; margin-bottom: 0.5rem; }
-        
-        .bg-alt { background-color: var(--bg-off-white); }
-
-        .flavor-tag {
-            display: inline-block;
-            padding: 4px 10px;
-            border: 1px solid var(--primary);
-            color: var(--primary);
-            font-size: 0.7rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 15px;
-            letter-spacing: 1px;
+        .cta-main {
+            display: inline-block; background: var(--neon-red); color: white;
+            padding: 18px 40px; border-radius: 50px; font-weight: 800;
+            text-decoration: none; text-transform: uppercase; letter-spacing: 1px;
+            box-shadow: 0 0 20px rgba(255, 0, 60, 0.4); animation: pulse 2s infinite;
         }
 
-        footer {
-            text-align: center;
-            padding: 3rem 1.5rem;
-            background: var(--primary);
-            color: white;
-            margin-top: 3rem;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
+        /* 3. EL PROBLEMA */
+        .problem-sect { padding: 4rem 1.5rem; text-align: center; background: var(--bg-dark); }
+        .x-icon { font-size: 3rem; margin-bottom: 1rem; display: block; }
+        h2 { text-transform: uppercase; font-weight: 800; letter-spacing: 1px; margin-bottom: 1.5rem; }
+
+        /* 4. LA SOLUCIÓN (Trilogía) */
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; padding: 2rem 1.5rem; max-width: 1000px; margin: 0 auto; }
+        .solution-card {
+            border: 1px solid #333; padding: 2rem; border-radius: 15px; text-align: center;
+            background: black;
         }
-    </style>
-</head>
-<body>
+        .icon-neon { font-size: 2rem; margin-bottom: 10px; display: block; text-shadow: 0 0 10px currentColor; }
 
-    <header>
-        <h1>ION-GEMS</h1>
-        <div class="tagline">Rinde a tu máximo nivel</div>
-        <p class="subtitle">Suplementación inteligente, diseño minimalista. La forma más limpia de alcanzar tu meta.</p>
+        /* 5. COLECCIÓN (Sabores) */
+        .collection-sect { padding: 2rem 1.5rem; }
+        .product-card {
+            background: var(--bg-dark); border-radius: 20px; overflow: hidden;
+            border: 1px solid #333; margin-bottom: 2rem; position: relative;
+        }
+        .product-img { width: 100%; height: 300px; object-fit: cover; }
+        .p-content { padding: 1.5rem; text-align: center; }
         
-        <a href="https://wa.me/593995531294?text=Hola,%20quisiera%20pedir%20información%20sobre%20las%20gomitas%20ION-GEMS" class="btn" target="_blank">Pedir por WhatsApp</a>
-    </header>
-
-    <div class="container">
-        <h2 style="text-align: center; margin-bottom: 3rem; text-transform: uppercase; font-size: 1.5rem; letter-spacing: 2px;">Esenciales</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Absorción</h3>
-                <p>Energía directa post-entreno. Sin preparación, sin grumos.</p>
-            </div>
-            <div class="card">
-                <h3>Sabor</h3>
-                <p>Intensidad real para disfrutar el proceso de recuperación.</p>
-            </div>
-            <div class="card">
-                <h3>Diseño</h3>
-                <p>Formato práctico para llevar en cualquier bolsillo o mochila.</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="bg-alt">
-        <div class="container">
-            <h2 style="text-align: center; margin-bottom: 3rem; text-transform: uppercase; font-size: 1.5rem; letter-spacing: 2px;">Colección</h2>
-            <div class="grid">
-                <div class="card">
-                    <span class="flavor-tag">Best Seller</span>
-                    <h3>Tropical Mango</h3>
-                    <p>Perfil cítrico y dulce. Recuperación refrescante.</p>
-                </div>
-                <div class="card">
-                    <span class="flavor-tag">Fresh Edition</span>
-                    <h3>Ice Mint</h3>
-                    <p>Frescura inmediata. Reactiva tus sentidos al instante.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="contacto" class="container" style="text-align: center;">
-        <h2 style="text-transform: uppercase; font-size: 1.5rem; letter-spacing: 2px; margin-bottom: 2rem;">Adquirir</h2>
-        
-        <div style="padding: 2rem; border: 1px solid #ddd; display: inline-block; margin-bottom: 2rem;">
-            <strong style="display: block; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">Muscle House Gym</strong>
-            <span style="color: #666;">Ibarra, Ecuador</span>
-        </div>
-        <br>
-        
-        <a href="https://wa.me/593995531294?text=Hola,%20quiero%20comprar%20ION-GEMS%20vistas%20en%20la%20web" class="btn">Contactar Ahora</a>
-    </div>
-
-    <footer>
-        <p>ION-GEMS © 2026. ESTÁNDAR DE CALIDAD.</p>
-    </footer>
-
-</body>
-</html>
+        /* Estilo Destacado (Frutos Rojos) */
+        .featured { border: 2px solid var(--neon-red); transform: scale(1
