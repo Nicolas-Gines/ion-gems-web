@@ -3,114 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ION-GEMS | Rinde a tu máximo nivel</title>
+    <title>ION-GEMS | Suplementación Deportiva</title>
     <style>
-        /* CONFIGURACIÓN BÁSICA */
+        /* --- ESTILOS DARK PREMIUM --- */
         :root {
-            --bg-black: #000000;
-            --neon-red: #ff003c;
-            --neon-cyan: #00f0ff;
-            --neon-gold: #ffe600;
-            --text-white: #ffffff;
+            --bg-black: #050505;
+            --bg-dark: #111111;
+            --primary: #ffffff;
+            --accent-red: #ff2a4d;
+            --accent-cyan: #00f2ff;
+            --accent-gold: #ffc800;
+            --text-gray: #b0b0b0;
         }
+        
         body {
-            font-family: sans-serif;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             margin: 0; padding: 0;
-            color: var(--text-white);
             background-color: var(--bg-black);
+            color: var(--primary);
+            line-height: 1.7;
         }
 
-        /* HEADER */
+        /* HEADER / HERO */
         header {
+            position: relative;
+            height: 90vh; /* Pantalla casi completa */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            padding: 4rem 1.5rem;
-            /* Fondo de seguridad por si la imagen tarda en cargar */
-            background-color: #111;
-            background-image: linear-gradient(rgba(0,0,0,0.6), #000), url('frutorojo-ion.jpg');
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), #050505), url('frutorojo-ion.jpg');
             background-size: cover;
             background-position: center;
+            padding: 1rem;
         }
-        img.logo-small { height: 50px; border-radius: 5px; margin-bottom: 1rem; }
         
-        h1 { font-size: 2.5rem; text-transform: uppercase; margin: 0; font-weight: 900; }
-        p.subtitle { color: #ccc; margin: 1rem auto; max-width: 500px; }
-
-        /* BOTONES */
-        .btn {
-            display: inline-block;
-            background: var(--neon-red);
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            margin-top: 1rem;
-            text-transform: uppercase;
-        }
-
-        /* SECCIONES */
-        .container { padding: 2rem 1.5rem; text-align: center; }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        /* TARJETAS DE PRODUCTO */
-        .card {
-            background: #111;
-            border: 1px solid #333;
-            border-radius: 15px;
-            overflow: hidden;
-            padding-bottom: 1.5rem;
-        }
-        .card img { width: 100%; height: 250px; object-fit: cover; }
-        .card h3 { margin: 1rem 0 0.5rem 0; text-transform: uppercase; }
+        .logo-main { width: 120px; border-radius: 15px; margin-bottom: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
         
+        h1 {
+            font-size: 3rem; line-height: 1.1; margin-bottom: 1rem; text-transform: uppercase; font-weight: 900;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem; max-width: 600px; margin-bottom: 2.5rem; color: #e0e0e0;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.8);
+        }
+
+        .btn-main {
+            background: var(--primary); color: #000; padding: 18px 45px;
+            text-decoration: none; font-weight: 900; text-transform: uppercase; letter-spacing: 1px;
+            border-radius: 50px; transition: transform 0.3s;
+        }
+        .btn-main:hover { transform: scale(1.05); }
+
+        /* SECCIONES GENERALES */
+        section { padding: 5rem 1.5rem; }
+        
+        .section-title {
+            font-size: 2rem; text-transform: uppercase; margin-bottom: 3rem;
+            border-left: 5px solid var(--accent-red); padding-left: 15px;
+        }
+
+        /* QUIENES SOMOS */
+        .about-text { font-size: 1.1rem; color: var(--text-gray); margin-bottom: 2rem; max-width: 800px; }
+
+        /* CARACTERÍSTICAS (GRID) */
+        .features-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem;
+        }
+        .feature-item {
+            background: var(--bg-dark); padding: 2.5rem; border-radius: 10px; border: 1px solid #222;
+        }
+        .feature-item h3 { color: var(--accent-cyan); margin-top: 0; text-transform: uppercase; }
+
+        /* PRODUCTOS */
+        .products-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;
+        }
+        .product-card {
+            background: #0e0e0e; border-radius: 20px; overflow: hidden; border: 1px solid #222;
+        }
+        .product-img { width: 100%; height: 320px; object-fit: cover; }
+        .product-info { padding: 2rem; }
+        .product-btn {
+            display: block; width: 100%; text-align: center; padding: 15px; margin-top: 15px;
+            border: 1px solid var(--primary); color: var(--primary); text-decoration: none;
+            text-transform: uppercase; font-weight: bold; border-radius: 5px;
+        }
+
         /* FOOTER */
-        footer { padding: 3rem 1.5rem; text-align: center; color: #888; font-size: 0.9rem; border-top: 1px solid #333; }
+        footer {
+            background: #000; padding: 4rem 1.5rem; text-align: center; border-top: 1px solid #222;
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <img src="iongems.jpg" alt="Logo" class="logo-small">
-        <h1>Rinde a tu<br><span style="color: var(--neon-red);">Máximo Nivel</span></h1>
-        <p class="subtitle">Energía, Hidratación y Colágeno en tu bolsillo.</p>
-        <a href="https://wa.me/593995531294?text=Hola%20ION-GEMS,%20quiero%20el%20pack%20de%20promocion" class="btn">Conseguir - $1.50</a>
+        <img src="iongems.jpg" alt="Logo ION-GEMS" class="logo-main">
+        <h1>El Futuro de la<br>Energía es Sólido</h1>
+        <p class="hero-subtitle">Desarrollamos la primera gominola deportiva de alto rendimiento en Ibarra. Energía, electrolitos y colágeno sin la molestia de los shakers.</p>
+        <a href="#productos" class="btn-main">Ver Colección</a>
     </header>
 
-    <div class="container">
-        <h2>Nuestra Colección</h2>
-        <div class="grid">
+    <section id="nosotros">
+        <h2 class="section-title">¿Qué es ION-GEMS?</h2>
+        <div class="about-text">
+            <p><strong>ION-GEMS</strong> nace de una necesidad real en el gimnasio: la incomodidad. Nos cansamos de cargar botellas pesadas, mezclar polvos que dejan grumos y buscar agua potable a mitad del entrenamiento.</p>
+            <p>Combinamos ciencia alimentaria con practicidad. Creamos un suplemento concentrado en formato de gominola (Gummy) que te permite llevar tu dosis de energía, recuperación y colágeno en el bolsillo más pequeño de tu mochila.</p>
+            <p>Hecho en Ibarra, pensado para atletas que valoran su tiempo y su rendimiento.</p>
+        </div>
+    </section>
+
+    <section style="background-color: #0a0a0a;">
+        <h2 class="section-title" style="border-color: var(--accent-cyan);">Tecnología Nutricional</h2>
+        <div class="features-grid">
+            <div class="feature-item">
+                <h3>⚡ Carga de Glucógeno</h3>
+                <p>Nuestra fórmula aporta carbohidratos de absorción rápida que van directo al músculo, evitando los picos de fatiga durante sesiones intensas de hipertrofia.</p>
+            </div>
+            <div class="feature-item">
+                <h3>🧬 Matriz de Colágeno</h3>
+                <p>A diferencia de las bebidas energéticas comunes, ION-GEMS incluye colágeno hidrolizado para proteger articulaciones y tendones sometidos a cargas pesadas.</p>
+            </div>
+            <div class="feature-item">
+                <h3>💧 Electrolitos Puros</h3>
+                <p>Repone sodio y potasio perdidos en el sudor. Esencial para evitar calambres y mantener la contracción muscular óptima.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="productos">
+        <h2 class="section-title" style="border-color: var(--accent-gold);">Nuestros Sabores</h2>
+        <p style="margin-bottom: 3rem; color: #888;">Disponibilidad inmediata en Ibarra.</p>
+        
+        <div class="products-grid">
             
-            <div class="card" style="border-color: var(--neon-red);">
-                <img src="frutorojo-ion.jpg" alt="Frutos Rojos">
-                <h3 style="color: var(--neon-red);">Red Berries</h3>
-                <p>Fuerza e Hipertrofia</p>
+            <div class="product-card">
+                <img src="frutorojo-ion.jpg" alt="Red Berries" class="product-img">
+                <div class="product-info">
+                    <h3 style="color: var(--accent-red); margin: 0;">Red Berries</h3>
+                    <p style="font-size: 0.9rem; margin: 10px 0;">Perfil antioxidante. Sabor intenso a frutos del bosque.</p>
+                    <a href="https://wa.me/593995531294?text=Hola,%20quisiera%20consultar%20el%20precio%20del%20pack%20Red%20Berries" class="product-btn">Consultar Stock</a>
+                </div>
             </div>
 
-            <div class="card" style="border-color: var(--neon-cyan);">
-                <img src="Menta-Ion_edit_42142831577933.jpg" alt="Menta">
-                <h3 style="color: var(--neon-cyan);">Ice Mint</h3>
-                <p>Cardio y Resistencia</p>
+            <div class="product-card">
+                <img src="Menta-Ion_edit_42142831577933.jpg" alt="Ice Mint" class="product-img">
+                <div class="product-info">
+                    <h3 style="color: var(--accent-cyan); margin: 0;">Ice Mint</h3>
+                    <p style="font-size: 0.9rem; margin: 10px 0;">Efecto refrescante inmediato. Abre vías respiratorias.</p>
+                    <a href="https://wa.me/593995531294?text=Hola,%20quisiera%20consultar%20el%20precio%20del%20pack%20Ice%20Mint" class="product-btn">Consultar Stock</a>
+                </div>
             </div>
 
-            <div class="card" style="border-color: var(--neon-gold);">
-                <img src="mango-ion_edit_42214951596812.jpg" alt="Mango">
-                <h3 style="color: var(--neon-gold);">Tropical Mango</h3>
-                <p>Energía Matutina</p>
+            <div class="product-card">
+                <img src="mango-ion_edit_42214951596812.jpg" alt="Tropical Mango" class="product-img">
+                <div class="product-info">
+                    <h3 style="color: var(--accent-gold); margin: 0;">Tropical Mango</h3>
+                    <p style="font-size: 0.9rem; margin: 10px 0;">Cítrico y dulce. Ideal para entrenamientos matutinos.</p>
+                    <a href="https://wa.me/593995531294?text=Hola,%20quisiera%20consultar%20el%20precio%20del%20pack%20Tropical%20Mango" class="product-btn">Consultar Stock</a>
+                </div>
             </div>
 
         </div>
-    </div>
+    </section>
 
     <footer>
-        <strong>MUSCLE HOUSE GYM</strong><br>
-        Punto de Venta Exclusivo • Ibarra<br><br>
-        © 2026 ION-GEMS
+        <div style="max-width: 600px; margin: 0 auto;">
+            <h3 style="text-transform: uppercase; margin-bottom: 1rem;">Punto de Venta Oficial</h3>
+            <p style="color: var(--accent-gold); font-weight: bold; font-size: 1.2rem;">MUSCLE HOUSE GYM</p>
+            <p style="color: #666; margin-bottom: 2rem;">Ibarra, Ecuador</p>
+            
+            <a href="https://wa.me/593995531294" style="color: #fff; text-decoration: none; border-bottom: 1px solid #555; padding-bottom: 5px;">Contactar Soporte / Ventas</a>
+            
+            <p style="margin-top: 3rem; font-size: 0.8rem; color: #444;">ION-GEMS © 2026. Innovación en Nutrición Deportiva.</p>
+        </div>
     </footer>
 
 </body>
